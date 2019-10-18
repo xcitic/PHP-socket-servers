@@ -1,7 +1,8 @@
-#!/usr/bin/php
 <?php
 
-class WorkerPool
+require_once 'worker.php';
+
+class WorkerPool extends Worker
 {
 
     CONST NUMBER_OF_WORKERS = 5;
@@ -14,8 +15,8 @@ class WorkerPool
 
     private function seedPool()
     {
-        for ($i = 0; $i < self::NUMBER_OF_WORKERS; $i++) {
-            $workers[] = new Worker();
+        for ($i = 0; $i < 5; $i++) {
+            $this->workers[] = new Worker();
         }
     }
 

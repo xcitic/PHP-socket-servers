@@ -1,14 +1,9 @@
 #!/usr/bin/php
-
 <?php
 
-    require_once 'queue.php';
-    require_once 'worker.php';
+    require_once 'bootstrap.php';
 
 	$socket = socket_create_listen(1337);
-
-	$queue = new Queue();
-	$worker = new Worker();
 
 
 	if (!$socket) {
@@ -20,8 +15,8 @@
 		$client = socket_accept($socket);
 		$queue->push($client);
         echo "\n".$queue->count();
-        $worker->getWork($queue->pop());
-        $worker->handleWork();
+        //$manager->assignWork($queue->pop());
+        var_dump($manager);
 
 	}
     socket_close($client);

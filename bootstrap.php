@@ -1,9 +1,9 @@
 <?php
 
-include_once 'worker.php';
-include_once 'workerpool.php';
-include_once 'manager.php';
-include_once 'queue.php';
+require_once 'worker.php';
+require_once 'workerpool.php';
+require_once 'manager.php';
+require_once 'queue.php';
 
 $workerPool = new WorkerPool();
 $manager = new Manager($workerPool);
