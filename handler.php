@@ -2,7 +2,7 @@
 
 interface Handler
 {
-    public function getWork($work);
+    public function setWork($work);
 
-    public function handleWork();
+    public function handleWork($work);
 }

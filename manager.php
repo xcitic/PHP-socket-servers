@@ -12,8 +12,6 @@ class Manager
     public function assignWork($work)
     {
         $worker = $this->getWorker();
-        var_dump($this->pool);
-        var_dump($worker);
         $worker->handleWork($work);
     }
 

@@ -15,7 +15,7 @@ class WorkerPool extends Worker
 
     private function seedPool()
     {
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < self::NUMBER_OF_WORKERS; $i++) {
             $this->workers[] = new Worker();
         }
     }

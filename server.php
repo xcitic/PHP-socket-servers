@@ -14,12 +14,15 @@
 	while (true) {
 		$client = socket_accept($socket);
 		$queue->push($client);
-        echo "\n".$queue->count();
-        //$manager->assignWork($queue->pop());
-        var_dump($manager);
+        echo "\nQueue Size: ".$queue->count();
 
+        $manager->assignWork($queue->pop());
+
+        echo "\nQueue Size: " . $queue->count();
+
+        socket_close($client);
 	}
-    socket_close($client);
+
 
 
 

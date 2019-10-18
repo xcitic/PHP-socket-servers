@@ -7,23 +7,23 @@ class Worker implements Handler
     public $busy = false;
     private $work;
 
-    public function getWork($work)
+    public function setWork($work)
     {
         $this->work = $work;
     }
 
-    public function handleWork()
+    public function handleWork($work)
     {
-        if (!empty($this->work)) {
-            $this->busy = true;
-            try {
-                $message = "\nWelcome to socket server v0.4\nWork ID: ".$this->work['id']."\n";
-                socket_write($this->work['client'], $message);
-                unset($this->work);
-                $this->busy = false;
-            } catch (\Exception $e) {
-                return $e;
-            }
+        $this->setWork($work);
+
+        $this->busy = true;
+        try {
+            $message = "Welcome to socket server v0.5\nWork ID: " . $this->work['id'] . "\n";
+            socket_write($this->work['client'], $message);
+            unset($this->work);
+            $this->busy = false;
+        } catch (\Exception $e) {
+            return $e;
         }
     }
 
